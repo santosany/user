@@ -14,7 +14,7 @@ export function useUserDataMutate(){
     const queryClient = useQueryClient();
     const mutate = useMutation({
         mutationFn:postData,
-        retry:2
+        retry:2,
         onSuccess: () => {
             queryClient.invalidateQueries(['user-data'])
         }

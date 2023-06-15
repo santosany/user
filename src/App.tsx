@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import { Card } from './components/card';
-import { UserData } from './Interface/UserData';
 import { useUserData } from './hooks/useUserData';
+import { CreateModal } from './components/create-modal/create-modal';
 
 function App() {
   const {data} = useUserData();
@@ -15,7 +15,7 @@ function App() {
       <div className="container">
        <h1>Usuario</h1>
        <div className="card-grid">
-          {data?.map(userData => 
+          {data?.map((userData: { name: string; email: string; department: string; }) => 
           <Card 
           name={userData.name} 
           email={userData.email} 
