@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
 import { useUserDataMutate } from "../../hooks/useUserDataMutate"
 import { UserData } from "../../Interface/UserData"
-import "./modal.css"
+import './modal.css';
 
 interface InputProps {
     label: string,
-    value: string | number,
-    updateValue: { value: any }; void: any;
+    value: string | number | [],
+    updateValue: (value: any)=> void
 }
 
 interface ModalProps {
@@ -15,10 +15,10 @@ interface ModalProps {
 
 const Input = ({ label, value, updateValue }: InputProps) => {
     return (
-        <div>
+        <>
             <label>{label}</label>
-            <input value={value} onChange={(event) => updateValue(event.target.value)} />
-        </div>
+            <input value={value} onChange={event => updateValue(event.target.value)}></input>
+        </>
     );
 };
 
