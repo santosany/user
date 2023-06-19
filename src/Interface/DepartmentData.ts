@@ -1,4 +1,4 @@
-export interface DeoartmentData{
+export interface DepartmentData{
     id?:number,
     name:string,
 }

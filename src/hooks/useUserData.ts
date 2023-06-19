@@ -8,11 +8,11 @@ const fetchData = async(): AxiosPromise<UserData[]>=> {
     const response = axios.get(API_URL + '/users')
     
      // Convert to UserData[] interface
-     const userData: UserData[] = (await response).data.map((item: any) => ({
+    const userData: UserData[] = (await response).data.map((item: any) => ({
         id: item.userId,
         name: item.userName,
         email: item.userEmail,
-        department: item.userDepartment.name
+        department: item.userDepartment
     }));
 
     return userData;
@@ -24,7 +24,7 @@ export function useUserData(){
         queryFn:fetchData,
         queryKey:['user-data'],
         retry:2,
-        staleTime: 60 * 1000,
+        staleTime: 60 * 1000
     })
     return{
         ...query,
